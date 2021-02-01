@@ -1,13 +1,13 @@
-package com.platzi.market;
+package com.verde.market;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PlatziMarketApplication {
+public class VerdeMarketApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PlatziMarketApplication.class, args);
+		SpringApplication.run(VerdeMarketApplication.class, args);
 	}
 
 }
