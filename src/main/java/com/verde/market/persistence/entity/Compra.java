@@ -1,5 +1,6 @@
 package com.verde.market.persistence.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +23,7 @@ public class Compra {
     private Integer idCompra;
 
     @Column(name = "id_cliente")
-    private String id_Cliente;
+    private String idCliente;
 
     private LocalDateTime fecha;
 
@@ -37,7 +38,7 @@ public class Compra {
     @JoinColumn(name ="id_cliente", insertable = false, updatable = false)
     private Cliente cliente;
 
-    @OneToMany(mappedBy= "producto")
+    @OneToMany(mappedBy= "compra", cascade = {CascadeType.ALL})
     private List<ComprasProducto> productos;
 
 
@@ -49,12 +50,12 @@ public class Compra {
         this.idCompra = idCompra;
     }
 
-    public String getId_Cliente() {
-        return id_Cliente;
+    public String getIdCliente() {
+        return idCliente;
     }
 
-    public void setId_Cliente(String id_Cliente) {
-        this.id_Cliente = id_Cliente;
+    public void setIdCliente(String id_Cliente) {
+        this.idCliente = id_Cliente;
     }
 
     public LocalDateTime getFecha() {
@@ -87,5 +88,21 @@ public class Compra {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public List<ComprasProducto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(List<ComprasProducto> productos) {
+        this.productos = productos;
     }
 }
